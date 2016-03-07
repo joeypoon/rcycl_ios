@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gJH-pg-zDJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3P0-dd-emv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -25,17 +25,29 @@
                                 </state>
                                 <connections>
                                     <action selector="userLoginPressed:" destination="gJH-pg-zDJ" eventType="touchUpInside" id="A5b-K8-Gu1"/>
-                                    <segue destination="KUm-2a-ofl" kind="show" identifier="ShowLoginForm" id="nX2-9o-med"/>
+                                    <segue destination="KUm-2a-ofl" kind="show" identifier="ShowUserLogin" id="nX2-9o-med"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dg-GR-VjC">
+                                <rect key="frame" x="20" y="401" width="335" height="49"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                <state key="normal" title="I want to pickup">
+                                    <color key="titleColor" red="0.0" green="0.72545811520000003" blue="0.2128320266" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="userLoginPressed:" destination="gJH-pg-zDJ" eventType="touchUpInside" id="ti2-Dq-kca"/>
+                                    <segue destination="KUm-2a-ofl" kind="show" identifier="ShowDriverLogin" id="kiJ-jL-9la"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2b6-yd-neT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7y-GE-4Sq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420.5" y="273.5"/>
+            <point key="canvasLocation" x="1232.5" y="273.5"/>
         </scene>
         <!--Login Form View Controller-->
         <scene sceneID="TsB-70-uLZ">
@@ -49,7 +61,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H05-UX-HSk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H05-UX-HSk">
                                 <rect key="frame" x="20" y="105" width="335" height="51"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                 <color key="textColor" red="0.090196078431372548" green="0.68627450980392157" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,11 +94,33 @@
                     <connections>
                         <outlet property="loginEmail" destination="5sQ-nX-Mff" id="iL4-dy-bn8"/>
                         <outlet property="loginPassword" destination="Zon-el-HPn" id="muL-lL-OMd"/>
+                        <outlet property="typeLoginLabel" destination="H05-UX-HSk" id="DJI-GP-6B9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKo-2O-N9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870.5" y="273.5"/>
+            <point key="canvasLocation" x="1682.5" y="273.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oEZ-jm-Nsl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3P0-dd-emv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DHN-wz-Kd5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gJH-pg-zDJ" kind="relationship" relationship="rootViewController" id="SMh-UV-Gnc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wz3-pZ-kON" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="273"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kiJ-jL-9la"/>
+    </inferredMetricsTieBreakers>
 </document>

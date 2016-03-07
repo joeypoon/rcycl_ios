@@ -11,44 +11,45 @@ import Alamofire
 
 class LoginFormViewController: UIViewController {
 
+    @IBOutlet weak var typeLoginLabel: UILabel!
     @IBOutlet weak var loginPassword: UITextField!
     @IBOutlet weak var loginEmail: UITextField!
+    
+    var type = String?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guard let type = type else {
+            return
+        }
+        typeLoginLabel.text = "\(type.capitalizedString) Login"
     }
 
     @IBAction func loginSubmitPressed(sender: UIButton) {
         guard let email = loginEmail.text,
-              let password = loginPassword.text
+              let password = loginPassword.text,
+              let type = type
             else {
                 return
         }
+        
         let parameters = [
-            "user": [
+            "\(type)": [
                 "email": email,
                 "password": password
             ]
         ]
-        
-        Alamofire.request(.POST, "\(rootURL)users/login", parameters: parameters)
-            .responseData { response in
-                print(response.response?.statusCode)
-            }
+
+        Alamofire.request(.POST, "\(rootURL)\(type)s/login", parameters: parameters)
             .responseJSON { response in
-                print("Response JSON: \(response.result.value)")
                 guard let json = response.result.value,
-                      let auth_token = json["auth_token"],
-                      let user_id = json["id"],
-                      let address = json["address"]
-                else {
+                      let user = json["user"] else {
                     return
                 }
-                print(auth_token)
-                print(user_id)
-                print(address)
+                
+                print(json)
             }
     }
     
