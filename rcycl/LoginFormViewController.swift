@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginFormViewController: UIViewController {
 
@@ -25,7 +26,30 @@ class LoginFormViewController: UIViewController {
             else {
                 return
         }
-        print("\(email) \(password)")
+        let parameters = [
+            "user": [
+                "email": email,
+                "password": password
+            ]
+        ]
+        
+        Alamofire.request(.POST, "\(rootURL)users/login", parameters: parameters)
+            .responseData { response in
+                print(response.response?.statusCode)
+            }
+            .responseJSON { response in
+                print("Response JSON: \(response.result.value)")
+                guard let json = response.result.value,
+                      let auth_token = json["auth_token"],
+                      let user_id = json["id"],
+                      let address = json["address"]
+                else {
+                    return
+                }
+                print(auth_token)
+                print(user_id)
+                print(address)
+            }
     }
     
     /*

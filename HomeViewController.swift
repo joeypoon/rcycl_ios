@@ -8,6 +8,8 @@
 
 import UIKit
 
+let rootURL = "https://rcycl.herokuapp.com/v1/"
+
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
