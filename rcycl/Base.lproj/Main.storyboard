@@ -75,7 +75,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zon-el-HPn">
                                 <rect key="frame" x="20" y="319" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giK-uH-3aM">
                                 <rect key="frame" x="20" y="383" width="335" height="30"/>
@@ -85,6 +85,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginSubmitPressed:" destination="KUm-2a-ofl" eventType="touchUpInside" id="mtU-ea-GV2"/>
+                                    <segue destination="oky-zq-vV7" kind="show" identifier="ShowHome" id="v4y-ZG-eAV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,11 +102,114 @@
             </objects>
             <point key="canvasLocation" x="1682.5" y="273.5"/>
         </scene>
+        <!--Home Nav Controller-->
+        <scene sceneID="lOZ-ek-I9O">
+            <objects>
+                <navigationController id="oky-zq-vV7" customClass="HomeNavController" customModule="rcycl" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YA8-BV-4xk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Imp-ov-fK3" kind="show" identifier="ShowUserHome" id="yNv-hm-hkR"/>
+                        <segue destination="gyK-rs-cwG" kind="show" identifier="ShowDriverHome" id="UHu-fn-vsC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VXu-bg-CKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2111.5" y="273.5"/>
+        </scene>
+        <!--User Home View Controller-->
+        <scene sceneID="OCQ-Hb-8eT">
+            <objects>
+                <viewController id="Imp-ov-fK3" customClass="UserHomeViewController" customModule="rcycl" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aar-NO-PrS"/>
+                        <viewControllerLayoutGuide type="bottom" id="oV5-yX-opf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ck4-Go-8MP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ml-vv-DNX">
+                                <rect key="frame" x="20" y="100" width="335" height="217"/>
+                                <color key="backgroundColor" red="0.086887560784816742" green="0.74036258459091187" blue="0.12710964679718018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="rcycl">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="schedulePickupPressed:" destination="Imp-ov-fK3" eventType="touchUpInside" id="alw-GZ-d01"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="schedulePickupButton" destination="2ml-vv-DNX" id="0AR-xm-2UZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D6u-Kz-rHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2627.5" y="-77.5"/>
+        </scene>
+        <!--Nearby Pickups View Controller-->
+        <scene sceneID="yNz-YC-t7E">
+            <objects>
+                <tableViewController id="gyK-rs-cwG" customClass="NearbyPickupsViewController" customModule="rcycl" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dOV-cy-rxd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="T7M-2j-uHo">
+                                <rect key="frame" x="0.0" y="113.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T7M-2j-uHo" id="LOs-gh-rcx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gyK-rs-cwG" id="bNk-93-WeB"/>
+                            <outlet property="delegate" destination="gyK-rs-cwG" id="CWC-DO-c9T"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="NearbyPickupsHeader" destination="Lcq-Tb-jlT" id="Wbs-GR-gBf"/>
+                        <outlet property="nearbyPickupsHeader" destination="Lcq-Tb-jlT" id="1YM-xW-xWE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgZ-El-Icr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Lcq-Tb-jlT">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7N-Zz-tCo">
+                            <rect key="frame" x="-54" y="-77" width="480" height="256"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nearby Pickups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAY-Gh-yZx">
+                            <rect key="frame" x="8" y="0.0" width="359" height="100"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="2627.5" y="785.5"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="oEZ-jm-Nsl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3P0-dd-emv" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DHN-wz-Kd5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -117,7 +221,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wz3-pZ-kON" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="273"/>
+            <point key="canvasLocation" x="763.5" y="273.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

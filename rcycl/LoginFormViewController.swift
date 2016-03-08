@@ -15,42 +15,55 @@ class LoginFormViewController: UIViewController {
     @IBOutlet weak var loginPassword: UITextField!
     @IBOutlet weak var loginEmail: UITextField!
     
-    var type = String?()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        guard let type = type else {
-            return
-        }
-        typeLoginLabel.text = "\(type.capitalizedString) Login"
+        typeLoginLabel.text = "\(session.type.capitalizedString) Login"
     }
 
     @IBAction func loginSubmitPressed(sender: UIButton) {
         guard let email = loginEmail.text,
-              let password = loginPassword.text,
-              let type = type
+              let password = loginPassword.text
             else {
                 return
         }
         
         let parameters = [
-            "\(type)": [
+            "\(session.type)": [
                 "email": email,
                 "password": password
             ]
         ]
 
-        Alamofire.request(.POST, "\(rootURL)\(type)s/login", parameters: parameters)
+        Alamofire.request(.POST, "\(session.rootURL)\(session.type)s/login", parameters: parameters)
             .responseJSON { response in
-                guard let json = response.result.value,
-                      let user = json["user"] else {
+                guard let json = response.result.value else {
                     return
                 }
                 
-                print(json)
+                if session.type == "user" {
+                    guard let user = json["user"],
+                          let auth_token = user?["auth_token"],
+                          let id = user?["id"]
+                    else {
+                        return
+                    }
+                    session.auth_token = auth_token as! String
+                    session.id = id as! Int
+                } else if session.type == "driver" {
+                    guard let driver = json["driver"],
+                          let auth_token = driver?["auth_token"],
+                          let id = driver?["id"]
+                    else {
+                        return
+                    }
+                    session.auth_token = auth_token as! String
+                    session.id = id as! Int
+                }
+                
             }
+        if session.auth_token != "" {
+            performSegueWithIdentifier("ShowHome", sender: sender)
+        }
     }
     
     /*
