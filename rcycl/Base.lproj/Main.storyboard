@@ -132,23 +132,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ml-vv-DNX">
-                                <rect key="frame" x="20" y="100" width="335" height="217"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMG-bu-hgs">
+                                <rect key="frame" x="20" y="118" width="335" height="217"/>
                                 <color key="backgroundColor" red="0.086887560784816742" green="0.74036258459091187" blue="0.12710964679718018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="rcycl">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="schedulePickupPressed:" destination="Imp-ov-fK3" eventType="touchUpInside" id="alw-GZ-d01"/>
+                                    <action selector="schedulePickupPressed:" destination="Imp-ov-fK3" eventType="touchUpInside" id="1dC-he-sSB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="schedulePickupButton" destination="2ml-vv-DNX" id="0AR-xm-2UZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D6u-Kz-rHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
