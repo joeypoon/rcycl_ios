@@ -11,6 +11,7 @@
 		D316C62F1C8E76DD0090D7E8 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D316C62E1C8E76DD0090D7E8 /* UserHomeViewController.swift */; };
 		D316C6331C8E7C4E0090D7E8 /* HomeNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D316C6321C8E7C4E0090D7E8 /* HomeNavController.swift */; };
 		D316C6351C8E7F570090D7E8 /* NearbyPickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D316C6341C8E7F570090D7E8 /* NearbyPickupsViewController.swift */; };
+		D316C6391C8EB1860090D7E8 /* Pickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D316C6381C8EB1860090D7E8 /* Pickup.swift */; };
 		D361663E1C8D179400ADD1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D361663D1C8D179400ADD1C7 /* AppDelegate.swift */; };
 		D36166431C8D179400ADD1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36166411C8D179400ADD1C7 /* Main.storyboard */; };
 		D36166451C8D179400ADD1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36166441C8D179400ADD1C7 /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		D316C62E1C8E76DD0090D7E8 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		D316C6321C8E7C4E0090D7E8 /* HomeNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNavController.swift; path = ../HomeNavController.swift; sourceTree = "<group>"; };
 		D316C6341C8E7F570090D7E8 /* NearbyPickupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPickupsViewController.swift; sourceTree = "<group>"; };
+		D316C6381C8EB1860090D7E8 /* Pickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pickup.swift; sourceTree = "<group>"; };
 		D361663A1C8D179400ADD1C7 /* rcycl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rcycl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D361663D1C8D179400ADD1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36166421C8D179400ADD1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,12 +149,13 @@
 				D316C6321C8E7C4E0090D7E8 /* HomeNavController.swift */,
 				D36166511C8D1EE700ADD1C7 /* HomeViewController.swift */,
 				D36166531C8D222D00ADD1C7 /* LoginFormViewController.swift */,
+				D316C6341C8E7F570090D7E8 /* NearbyPickupsViewController.swift */,
+				D316C6381C8EB1860090D7E8 /* Pickup.swift */,
 				D316C62C1C8E619E0090D7E8 /* Session.swift */,
 				D316C62E1C8E76DD0090D7E8 /* UserHomeViewController.swift */,
 				D36166441C8D179400ADD1C7 /* Assets.xcassets */,
 				D36166461C8D179400ADD1C7 /* LaunchScreen.storyboard */,
 				D36166411C8D179400ADD1C7 /* Main.storyboard */,
-				D316C6341C8E7F570090D7E8 /* NearbyPickupsViewController.swift */,
 			);
 			path = rcycl;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				D316C6331C8E7C4E0090D7E8 /* HomeNavController.swift in Sources */,
 				D316C62D1C8E619E0090D7E8 /* Session.swift in Sources */,
 				D36166541C8D222D00ADD1C7 /* LoginFormViewController.swift in Sources */,
+				D316C6391C8EB1860090D7E8 /* Pickup.swift in Sources */,
 				D361663E1C8D179400ADD1C7 /* AppDelegate.swift in Sources */,
 				D316C62F1C8E76DD0090D7E8 /* UserHomeViewController.swift in Sources */,
 				D316C6351C8E7F570090D7E8 /* NearbyPickupsViewController.swift in Sources */,

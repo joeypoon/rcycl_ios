@@ -14,6 +14,8 @@ class NearbyPickupsViewController: UITableViewController, CLLocationManagerDeleg
 
     @IBOutlet weak var nearbyPickupsHeader: UIView!
     
+    var pickups: NSArray?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableHeaderView = nearbyPickupsHeader
@@ -32,7 +34,7 @@ class NearbyPickupsViewController: UITableViewController, CLLocationManagerDeleg
         let parameters = [
             "latitude": latitude,
             "longitude": longitude,
-            "distance": 2500 //temp
+            "distance": 2500 //temp for testing
         ]
         
         let headers = [
@@ -41,26 +43,27 @@ class NearbyPickupsViewController: UITableViewController, CLLocationManagerDeleg
         
         Alamofire.request(.GET, "\(session.rootURL)drivers/nearby_pickups", parameters: parameters, headers: headers)
             .responseJSON { response in
-                guard let json = response.result.value,
-                      let pickups = json["pickups"]
-                else {
-                    return
+                let json = response.result.value as! NSDictionary
+                self.pickups = json["pickups"] as? [AnyObject]
+                
+                var temp: [Pickup] = []
+                for pickup in self.pickups! {
+                    temp.append(Pickup(pickup: pickup as! NSDictionary))
                 }
                 
-                print(json)
-                print(pickups)
+                self.pickups = temp
+                self.tableView.reloadData()
         }
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return pickups?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("nearbyPickupCell", forIndexPath: indexPath)
+        let pickup = pickups?[indexPath.row] as? Pickup
+        cell.textLabel?.text = "Distance: \((pickup?.distance)!)"
 
         return cell
     }
