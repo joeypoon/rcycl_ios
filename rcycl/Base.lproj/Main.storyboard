@@ -85,7 +85,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginSubmitPressed:" destination="KUm-2a-ofl" eventType="touchUpInside" id="mtU-ea-GV2"/>
-                                    <segue destination="oky-zq-vV7" kind="show" identifier="ShowHome" id="v4y-ZG-eAV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,6 +95,7 @@
                         <outlet property="loginEmail" destination="5sQ-nX-Mff" id="iL4-dy-bn8"/>
                         <outlet property="loginPassword" destination="Zon-el-HPn" id="muL-lL-OMd"/>
                         <outlet property="typeLoginLabel" destination="H05-UX-HSk" id="DJI-GP-6B9"/>
+                        <segue destination="oky-zq-vV7" kind="show" identifier="ShowHome" id="dh4-LN-EYK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKo-2O-N9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,7 +160,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="T7M-2j-uHo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nearbyPickupCell" id="T7M-2j-uHo">
                                 <rect key="frame" x="0.0" y="113.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T7M-2j-uHo" id="LOs-gh-rcx">

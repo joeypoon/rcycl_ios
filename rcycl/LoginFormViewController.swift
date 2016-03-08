@@ -60,10 +60,12 @@ class LoginFormViewController: UIViewController {
                     session.id = id as! Int
                 }
                 
+                if session.auth_token != "" {
+                    self.performSegueWithIdentifier("ShowHome", sender: sender)
+                }
+                
             }
-        if session.auth_token != "" {
-            performSegueWithIdentifier("ShowHome", sender: sender)
-        }
+        
     }
     
     /*
