@@ -256,6 +256,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="datePicker" destination="NTo-NU-n03" id="FXj-Jp-xoA"/>
                         <outlet property="requestPickupPressed" destination="uMG-bu-hgs" id="Vms-ex-iEk"/>
                         <segue destination="3P0-dd-emv" kind="show" identifier="ShowUserLogout" id="4zr-Gf-TDr"/>
                     </connections>
@@ -407,6 +408,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="JX6-2M-lDI"/>
         <segue reference="kiJ-jL-9la"/>
-        <segue reference="Y0f-PE-PuI"/>
+        <segue reference="4zr-Gf-TDr"/>
     </inferredMetricsTieBreakers>
 </document>

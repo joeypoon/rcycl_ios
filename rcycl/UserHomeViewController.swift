@@ -12,6 +12,7 @@ import Alamofire
 class UserHomeViewController: UIViewController {
 
     @IBOutlet weak var requestPickupPressed: UIButton!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class UserHomeViewController: UIViewController {
         let parameters = [
             "pickup": [
                 "user_id": session.id,
-                "time": NSDate()
+                "time": datePicker.date
             ]
         ]
         
