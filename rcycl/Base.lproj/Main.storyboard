@@ -24,7 +24,6 @@
                                     <color key="titleColor" red="0.0" green="0.72545811520000003" blue="0.2128320266" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="userLoginPressed:" destination="gJH-pg-zDJ" eventType="touchUpInside" id="A5b-K8-Gu1"/>
                                     <segue destination="KUm-2a-ofl" kind="show" identifier="ShowUserLogin" id="nX2-9o-med"/>
                                 </connections>
                             </button>
@@ -35,7 +34,6 @@
                                     <color key="titleColor" red="0.0" green="0.72545811520000003" blue="0.2128320266" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="userLoginPressed:" destination="gJH-pg-zDJ" eventType="touchUpInside" id="ti2-Dq-kca"/>
                                     <segue destination="KUm-2a-ofl" kind="show" identifier="ShowDriverLogin" id="kiJ-jL-9la"/>
                                 </connections>
                             </button>
@@ -407,7 +405,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="JX6-2M-lDI"/>
-        <segue reference="kiJ-jL-9la"/>
+        <segue reference="nX2-9o-med"/>
         <segue reference="4zr-Gf-TDr"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,16 +7,16 @@
 //
 
 import UIKit
+import CoreLocation
 
 let session = Session()
+var locManager = CLLocationManager()
 
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    @IBAction func userLoginPressed(sender: UIButton) {
+        locManager.requestWhenInUseAuthorization()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

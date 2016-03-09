@@ -17,6 +17,7 @@ class UserHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestPickupPressed.layer.cornerRadius = 20
+        datePicker.minimumDate = NSDate()
     }
     
     @IBAction func schedulePickupPressed(sender: UIButton) {
@@ -31,22 +32,17 @@ class UserHomeViewController: UIViewController {
             "x-auth-token": session.auth_token
         ]
         
+        var title = ""
+        var message = ""
+        
         Alamofire.request(.POST, "\(session.rootURL)pickups", parameters: parameters, headers: headers)
+            .validate()
             .responseJSON { response in
-                guard let json = response.result.value,
-                      let pickup = json["pickup"],
-                      let status = pickup?["status"]
-                else {
-                    return
-                }
-                
-                var title = ""
-                var message = ""
-                
-                if status as? String == "Scheduled" {
+                switch response.result {
+                case .Success:
                     title = "rcycled!"
                     message = "Pickup scheduled"
-                } else {
+                case .Failure:
                     title = "Error"
                     message = "Unable to process request"
                 }

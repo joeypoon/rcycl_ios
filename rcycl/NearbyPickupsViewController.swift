@@ -15,14 +15,12 @@ class NearbyPickupsViewController: UITableViewController, CLLocationManagerDeleg
     @IBOutlet weak var nearbyPickupsHeader: UIView!
     @IBOutlet weak var nearbyPickupsFooter: UIView!
     
-    var locManager = CLLocationManager()
     var pickups: [Pickup] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableHeaderView = nearbyPickupsHeader
         tableView.tableFooterView = nearbyPickupsFooter
-        locManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             locManager.delegate = self
@@ -51,17 +49,26 @@ class NearbyPickupsViewController: UITableViewController, CLLocationManagerDeleg
             ]
             
             Alamofire.request(.GET, "\(session.rootURL)drivers/nearby_pickups", parameters: parameters, headers: headers)
+                .validate()
                 .responseJSON { response in
-                    let json = response.result.value as! NSDictionary
-                    let pickups = json["pickups"] as? [AnyObject]
-                    
-                    var temp: [Pickup] = []
-                    for pickup in pickups! {
-                        temp.append(Pickup(pickup: pickup as! NSDictionary))
+                    switch response.result {
+                    case .Success:
+                        let json = response.result.value as! NSDictionary
+                        let pickups = json["pickups"] as? [AnyObject]
+                        
+                        var temp: [Pickup] = []
+                        for pickup in pickups! {
+                            temp.append(Pickup(pickup: pickup as! NSDictionary))
+                        }
+                        
+                        self.pickups = temp
+                        self.tableView.reloadData()
+                    case .Failure:
+                        let message = "Error processing request"
+                        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alertController, animated: true, completion: nil)
                     }
-                    
-                    self.pickups = temp
-                    self.tableView.reloadData()
             }
         }
     }
