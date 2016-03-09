@@ -15,4 +15,10 @@ class Session: NSObject {
     var id: Int = 0
     var auth_token: String = ""
     
+    func logout() {
+        type = ""
+        id = 0
+        auth_token = ""
+    }
+    
 }

@@ -35,47 +35,54 @@ class LoginFormViewController: UIViewController {
         ]
 
         Alamofire.request(.POST, "\(session.rootURL)\(session.type)s/login", parameters: parameters)
+            .validate()
             .responseJSON { response in
-                guard let json = response.result.value else {
-                    return
-                }
-                
-                if session.type == "user" {
-                    guard let user = json["user"],
-                          let auth_token = user?["auth_token"],
-                          let id = user?["id"]
-                    else {
+                switch response.result {
+                case .Success:
+                    guard let json = response.result.value else {
                         return
                     }
-                    session.auth_token = auth_token as! String
-                    session.id = id as! Int
-                } else if session.type == "driver" {
-                    guard let driver = json["driver"],
-                          let auth_token = driver?["auth_token"],
-                          let id = driver?["id"]
-                    else {
-                        return
+                    
+                    if session.type == "user" {
+                        guard let user = json["user"],
+                            let auth_token = user?["auth_token"],
+                            let id = user?["id"]
+                            else {
+                                return
+                        }
+                        session.auth_token = auth_token as! String
+                        session.id = id as! Int
+                    } else if session.type == "driver" {
+                        guard let driver = json["driver"],
+                            let auth_token = driver?["auth_token"],
+                            let id = driver?["id"]
+                            else {
+                                return
+                        }
+                        session.auth_token = auth_token as! String
+                        session.id = id as! Int
                     }
-                    session.auth_token = auth_token as! String
-                    session.id = id as! Int
-                }
-                
-                if session.auth_token != "" {
-                    self.performSegueWithIdentifier("ShowHome", sender: sender)
+                    
+                    if session.auth_token != "" {
+                        self.performSegueWithIdentifier("ShowHome", sender: sender)
+                    }
+                case .Failure:
+                    let message = "Invalid email/password combination"
+                    let alertController = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
                 }
                 
             }
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func newUserPressed(sender: UIButton) {
+        if session.type == "user" {
+            self.performSegueWithIdentifier("ShowUserSignup", sender: sender)
+        } else if session.type == "driver" {
+            self.performSegueWithIdentifier("ShowDriverSignup", sender: sender)
+        }
     }
-    */
 
 }

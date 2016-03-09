@@ -20,6 +20,9 @@
 		D36166541C8D222D00ADD1C7 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36166531C8D222D00ADD1C7 /* LoginFormViewController.swift */; };
 		D361666F1C8D354600ADD1C7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36166621C8D338500ADD1C7 /* Alamofire.framework */; };
 		D36166701C8D354600ADD1C7 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36166621C8D338500ADD1C7 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D383D6171C8FBAD4007162C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D383D6161C8FBAD4007162C6 /* CoreLocation.framework */; };
+		D383D6231C8FC3A0007162C6 /* UserSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383D6221C8FC3A0007162C6 /* UserSignupViewController.swift */; };
+		D383D6251C8FCE06007162C6 /* DriverSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383D6241C8FCE06007162C6 /* DriverSignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,9 @@
 		D36166511C8D1EE700ADD1C7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		D36166531C8D222D00ADD1C7 /* LoginFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
 		D36166571C8D338500ADD1C7 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		D383D6161C8FBAD4007162C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D383D6221C8FC3A0007162C6 /* UserSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSignupViewController.swift; path = ../UserSignupViewController.swift; sourceTree = "<group>"; };
+		D383D6241C8FCE06007162C6 /* DriverSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D383D6171C8FBAD4007162C6 /* CoreLocation.framework in Frameworks */,
 				D361666F1C8D354600ADD1C7 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +134,7 @@
 		D36166311C8D179400ADD1C7 = {
 			isa = PBXGroup;
 			children = (
+				D383D6161C8FBAD4007162C6 /* CoreLocation.framework */,
 				D36166571C8D338500ADD1C7 /* Alamofire.xcodeproj */,
 				D361663C1C8D179400ADD1C7 /* rcycl */,
 				D361663B1C8D179400ADD1C7 /* Products */,
@@ -146,6 +154,7 @@
 			children = (
 				D36166491C8D179400ADD1C7 /* Info.plist */,
 				D361663D1C8D179400ADD1C7 /* AppDelegate.swift */,
+				D383D6241C8FCE06007162C6 /* DriverSignupViewController.swift */,
 				D316C6321C8E7C4E0090D7E8 /* HomeNavController.swift */,
 				D36166511C8D1EE700ADD1C7 /* HomeViewController.swift */,
 				D36166531C8D222D00ADD1C7 /* LoginFormViewController.swift */,
@@ -153,6 +162,7 @@
 				D316C6381C8EB1860090D7E8 /* Pickup.swift */,
 				D316C62C1C8E619E0090D7E8 /* Session.swift */,
 				D316C62E1C8E76DD0090D7E8 /* UserHomeViewController.swift */,
+				D383D6221C8FC3A0007162C6 /* UserSignupViewController.swift */,
 				D36166441C8D179400ADD1C7 /* Assets.xcassets */,
 				D36166461C8D179400ADD1C7 /* LaunchScreen.storyboard */,
 				D36166411C8D179400ADD1C7 /* Main.storyboard */,
@@ -306,9 +316,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D383D6231C8FC3A0007162C6 /* UserSignupViewController.swift in Sources */,
 				D316C6331C8E7C4E0090D7E8 /* HomeNavController.swift in Sources */,
 				D316C62D1C8E619E0090D7E8 /* Session.swift in Sources */,
 				D36166541C8D222D00ADD1C7 /* LoginFormViewController.swift in Sources */,
+				D383D6251C8FCE06007162C6 /* DriverSignupViewController.swift in Sources */,
 				D316C6391C8EB1860090D7E8 /* Pickup.swift in Sources */,
 				D361663E1C8D179400ADD1C7 /* AppDelegate.swift in Sources */,
 				D316C62F1C8E76DD0090D7E8 /* UserHomeViewController.swift in Sources */,

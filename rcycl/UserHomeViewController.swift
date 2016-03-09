@@ -11,8 +11,11 @@ import Alamofire
 
 class UserHomeViewController: UIViewController {
 
+    @IBOutlet weak var requestPickupPressed: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestPickupPressed.layer.cornerRadius = 20
     }
     
     @IBAction func schedulePickupPressed(sender: UIButton) {
@@ -51,5 +54,10 @@ class UserHomeViewController: UIViewController {
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func logoutPressed(sender: AnyObject) {
+        session.logout()
+        performSegueWithIdentifier("ShowUserLogout", sender: sender)
     }
 }
